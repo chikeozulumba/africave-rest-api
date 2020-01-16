@@ -1,0 +1,17 @@
+env:
+  jest/globals: true
+plugins:
+  - node
+  - promise
+  - jest
+extends:
+  - standard
+  - plugin:node/recommended
+  - plugin:promise/recommended
+  - plugin:jest/recommended
+rules:
+  no-param-reassign: error
+  no-empty: error
+  node/no-unpublished-require: 0
+  promise/no-callback-in-promise: 0
+  jest: true

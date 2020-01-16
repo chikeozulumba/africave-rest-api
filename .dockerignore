@@ -1,0 +1,23 @@
+# Logs
+__logs__
+*.log
+npm-debug.log*
+
+# Coverage directory used by tools like istanbul
+coverage
+
+# Docs directory (if generated)
+docs
+
+# Dependency directories
+node_modules
+
+# Optional npm cache directory
+.npm
+
+# Usless config files
+.codeclimate.yml
+.coveralls.yml
+.eslintrc.yml
+.env.template
+.travis.yml

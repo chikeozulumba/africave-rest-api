@@ -1,0 +1,25 @@
+# npm dependency directory
+node_modules
+*.log
+*.gz
+
+# optional npm cache directory
+.npm
+
+# optional REPL history
+.node_repl_history
+
+# .env
+.env
+
+# coverage directory
+coverage
+
+# log folders
+__logs__
+
+# .DS_Store
+.DS_Store
+
+# package.lock file
+package-lock.json
