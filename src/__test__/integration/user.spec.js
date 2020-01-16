@@ -3,9 +3,9 @@
 const supertest = require('supertest')
 const httpStatus = require('http-status')
 
-const app = require('../index')
-const User = require('../api/user/user.model')
-const JWToken = require('../libs/jwToken')
+const app = require('../../index')
+const User = require('../../api/user/user.model')
+const JWToken = require('../../libs/jwToken')
 
 afterAll((done) => {
   User.deleteMany({})
@@ -17,33 +17,27 @@ describe('User API specs', () => {
   let user
   const userData = {
     username: 'user123',
+    fullName: 'User user123',
     mobileNumber: '1234567890',
-    password: 'pass123'
+    password: 'pass123',
+    email: 'user123@email.com'
   }
-  const token = JWToken.create(userData, '10m')
+  const token = JWToken.create(userData, '1day')
 
   describe('POST /api/users', () => {
     test('should create new user', (done) => {
       supertest(app)
-        .post('/api/users')
+        .post('/api/auth/register')
         .send(userData)
-        .expect(httpStatus.OK)
+        .expect(httpStatus.ACCEPTED)
         .then((res) => {
-          expect(res.body).toHaveProperty('_id')
-          expect(res.body.username).toEqual(userData.username)
-          expect(res.body.mobileNumber).toEqual(userData.mobileNumber)
-          expect(res.body).not.toHaveProperty('password')
-          user = res.body
+          expect(res.body.user).toHaveProperty('_id')
+          expect(res.body.user.username).toEqual(userData.username)
+          expect(res.body.user.mobileNumber).toEqual(userData.mobileNumber)
+          expect(res.body.user).not.toHaveProperty('password')
+          user = res.body.user
           return done()
         })
-        .catch(done)
-    })
-    test('should return - duplicate key error', (done) => {
-      supertest(app)
-        .post('/api/users')
-        .send(userData)
-        .expect(httpStatus.BAD_REQUEST)
-        .then(() => done())
         .catch(done)
     })
   })
