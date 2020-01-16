@@ -46,7 +46,7 @@ class AuthService {
       if (!checkUser) {
         const user = await User.create({
           ...credentials,
-          password: bcrypt.hashSync(credentials.password, 10)
+          password: bcrypt.hashSync(credentials.password, bcrypt.genSaltSync(10))
         })
         const payload = {
           username: user.username,

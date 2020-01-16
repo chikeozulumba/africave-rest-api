@@ -2,8 +2,8 @@
 
 const httpStatus = require('http-status')
 
-const APIError = require('../libs/APIError')
-const JWToken = require('../libs/jwToken')
+const APIError = require('../../libs/APIError')
+const JWToken = require('../../libs/jwToken')
 
 describe('libs specs', () => {
   describe('APIError specs', () => {

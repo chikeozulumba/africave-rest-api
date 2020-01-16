@@ -14,6 +14,8 @@
     "npm": ">=6.1.0"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.8.3",
+    "@babel/register": "^7.8.3",
     "@hapi/joi": "^17.0.2",
     "@skarif2/logger": "^0.3.0",
     "bcryptjs": "^2.4.3",
@@ -35,7 +37,13 @@
     "mongoose": "^5.4.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.8.3",
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
     "apidoc": "^0.17.7",
+    "babel-jest": "^24.9.0",
     "coveralls": "^3.0.2",
     "eslint": "^5.11.1",
     "eslint-config-standard": "^12.0.0",
@@ -44,19 +52,22 @@
     "eslint-plugin-node": "^8.0.0",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "faker": "^4.1.0",
     "husky": "^0.14.3",
     "jest": "^23.6.0",
     "nodemon": "^1.18.9",
+    "sinon": "^8.1.0",
+    "sinon-express-mock": "^2.2.1",
     "supertest": "^3.3.0"
   },
   "scripts": {
     "start": "node ./src/index.js",
-    "start:watch": "nodemon ./src/index.js",
+    "start:watch": "nodemon --exec babel-node ./src/index.js",
     "start:debug": "node ./src/index.js",
     "lint": "eslint --ext=.js src || true",
-    "test": "NODE_ENV=test MONGO_HOST=mongodb://localhost/nrs-test jest",
-    "test:watch": "NODE_ENV=test MONGO_HOST=mongodb://localhost/nrs-test jest --watch",
-    "test:coverage": "NODE_ENV=test MONGO_HOST=mongodb://localhost/nrs-test jest --coverage",
+    "test": "NODE_ENV=test MONGO_HOST=mongodb://localhost/africave-api-test jest",
+    "test:watch": "NODE_ENV=test MONGO_HOST=mongodb://localhost/africave-api-test jest --watch",
+    "test:coverage": "NODE_ENV=test MONGO_HOST=mongodb://localhost/africave-api-test jest --coverage",
     "precommit": "eslint --ext=.js src && npm run test",
     "apidoc": "apidoc -i ./src -f .route.js -o ./docs"
   },
