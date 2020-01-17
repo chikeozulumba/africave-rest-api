@@ -8,6 +8,8 @@ const app = require('./config/express')
 const env = require('./config/environment')
 const mongoose = require('./config/mongoose')
 
+require('./schedule/dispatch')
+
 /**
  * Start application if not running test
  */

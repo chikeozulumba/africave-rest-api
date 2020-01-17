@@ -37,6 +37,10 @@ const SubscriptionSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  finished: {
+    type: Boolean,
+    default: false
+  },
   timezone: {
     type: String,
     required: true
