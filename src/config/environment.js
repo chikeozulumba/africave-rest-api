@@ -49,7 +49,7 @@ const env = {
   mongo: {
     host: value.MONGO_HOST,
     port: value.MONGO_PORT,
-    debug: value.MONGO_DEBUG
+    debug: true
   },
   jwtSecret: value.JWT_SECRET
 }

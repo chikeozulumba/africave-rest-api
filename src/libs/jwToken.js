@@ -13,9 +13,23 @@ const create = (payload, expiresIn) => jwt.sign(payload,
  * Get payload data from JWT
  * @param {String} token JWT token
  */
+const verifyToken = (token) => {
+  try {
+    var decoded = jwt.verify(token, env.jwtSecret)
+    return decoded
+  } catch (err) {
+    return null
+  }
+}
+
+/**
+ * Get payload data from JWT
+ * @param {String} token JWT token
+ */
 const getData = (token) => jwt.decode(token)
 
 module.exports = {
   create,
-  getData
+  getData,
+  verifyToken
 }

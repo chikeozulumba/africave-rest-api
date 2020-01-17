@@ -38,10 +38,9 @@ mongoose.connection.on('error', () => {
 /**
  * print mongoose logs in dev env
  */
-if (env.mongo.debug) {
-  mongoose.set('debug', (collectionName, method, query, doc) => {
-    debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc)
-  })
-}
+mongoose.set('debug', true)
+mongoose.set('debug', (collectionName, method, query, doc) => {
+  debug(`${collectionName}.${method}`, util.inspect(query, false, 20), doc)
+})
 
 module.exports = mongoose
