@@ -1,5 +1,9 @@
 const Joi = require('joi')
-const dotenv = require('dotenv').config()
+const environment = process.env.NODE_ENV
+const envFile = (environment && environment !== 'development') ? `.env.${environment}` : '.env'
+const dotenv = require('dotenv').config({
+  path: `./${envFile}`
+})
 
 /**
  * Error on unsuccessful loading of .env

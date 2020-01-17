@@ -1,5 +1,5 @@
 # Use latest node version 10.x
-FROM node:10.15.0
+FROM node:12.13.1
 
 # Create app directory in container
 RUN mkdir -p /app
@@ -20,7 +20,7 @@ RUN npm install
 COPY . /app/
 
 # Expose port 9100
-EXPOSE 9100
+EXPOSE 9999
 
 # CMD to start service
 CMD [ "npm", "start" ]

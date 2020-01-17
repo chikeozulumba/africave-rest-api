@@ -23,3 +23,5 @@ __logs__
 
 # package.lock file
 package-lock.json
+
+data

@@ -1,0 +1,22 @@
+version: "2"
+services:
+  app:
+    environment: 
+      - NODE_ENV=docker
+    container_name: africave
+    restart: always
+    build:
+      context: ./
+    ports:
+      - "9999:9999"
+    depends_on:
+      - mongo
+    links:
+      - mongo
+  mongo:
+    container_name: mongo
+    image: mongo
+    volumes:
+      - ./data:/data/db
+    ports:
+      - "27017:27017"
