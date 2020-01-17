@@ -121,6 +121,6 @@ describe('auth specs', () => {
     })
   })
 
-  // beforeAll(() => User.deleteMany({}, () => console.log('Documents cleared')))
-  afterAll(() => User.deleteMany({}, () => console.log('Documents cleared')))
+  beforeAll(() => User.deleteMany({}, () => console.log('Documents cleared')))
+  // afterAll(() => User.deleteMany({}, () => console.log('Documents cleared')))
 })

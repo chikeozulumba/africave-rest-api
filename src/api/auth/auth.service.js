@@ -13,8 +13,9 @@ class AuthService {
       })
       if (bcrypt.compareSync(credentials.password, user.password)) {
         const payload = {
-          username: user.username,
-          mobileNumber: user.mobileNumber
+          _id: user._id,
+          mobileNumber: user.mobileNumber,
+          role: user.role
         }
         const token = JWToken.create(payload, '1d')
         return {
@@ -49,8 +50,9 @@ class AuthService {
           password: bcrypt.hashSync(credentials.password, bcrypt.genSaltSync(10))
         })
         const payload = {
-          username: user.username,
-          mobileNumber: user.mobileNumber
+          _id: user._id,
+          mobileNumber: user.mobileNumber,
+          role: user.role
         }
         const token = JWToken.create(payload, '1d')
         return {

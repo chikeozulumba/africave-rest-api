@@ -26,7 +26,8 @@ const register = Joi.object({
         allow: ['com', 'net']
       }
     }),
-  mobileNumber: Joi.string().required()
+  mobileNumber: Joi.string().required(),
+  role: Joi.string().valid('subscriber', 'author', 'admin').optional()
 })
 
 module.exports = {
