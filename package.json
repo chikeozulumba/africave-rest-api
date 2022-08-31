@@ -37,7 +37,7 @@
     "lodash": "^4.17.11",
     "method-override": "^3.0.0",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "mongoose": "^5.4.2",
     "node-cron": "^2.0.3",
     "twilio": "^3.39.2"
